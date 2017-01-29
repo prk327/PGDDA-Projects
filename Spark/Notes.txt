@@ -1,0 +1,49 @@
+Before starting the project we first need to create a directory where we need to copy the upgrad marketing file - So we will use the below shell command to create a directory
+> hdfs dfs -mkdir s3://ughdfsdemo/tmp/sparkSQL_DDA1610218
+Now we need to copy the ugmixp_data file to this directory, with below command
+
+> hdfs dfs -cp s3://ughdfsdemo/Saprk_Assignment_data/ugmixp_data s3://ughdfsdemo/tmp/sparkSQL_DDA1610218/
+
+#we will now check whether the file has been successfully copied or not
+
+> hdfs dfs -ls s3://ughdfsdemo/tmp/sparkSQL_DDA1610218/
+
+#we see that the file is copied successfully,
+#now we will check the content of the file -
+
+> hdfs dfs -cat s3://ughdfsdemo/tmp/sparkSQL_DDA1610218/ugmixp_data
+
+#Now we need to create HIVE table on this directory where we have copied the file, we have use 'serialization.null.format' = '' to impute blank as null.
+
+CREATE
+    EXTERNAL TABLE
+        DDA1610218.Marketing_Upgrad (
+            event string
+            ,TIME string
+            ,distinct_id string
+            ,city string
+            ,current_url string
+            ,initial_referrer string
+            ,initial_referring_domain string
+            ,OS string
+            ,referrer string
+            ,referring_domain string
+            ,region string
+            ,course string
+            ,latest_utm_campaign string
+            ,latest_utm_content string
+            ,latest_utm_medium string
+            ,latest_utm_source string
+            ,page_title string
+            ,user_requested_DA_info string
+            ,user_viewed_DA_prog_details string
+            ,utm_campaign string
+            ,utm_content string
+            ,utm_medium string
+            ,utm_source string
+            ,utm_term string
+        ) row format delimited fields terminated BY ',' stored AS textfile location "s3://ughdfsdemo/tmp/sparkSQL_DDA1610218/" TBLPROPERTIES (
+            "skip.header.line.count" = "1"
+            ,'serialization.null.format' = ''
+        )
+;
