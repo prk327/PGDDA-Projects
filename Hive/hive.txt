@@ -1,0 +1,65 @@
+
+
+CREATE
+    EXTERNAL TABLE
+        DDA1610218.airline_external (
+            YEAR INT
+            ,MONTH INT
+            ,DayofMonth INT
+            ,DayofWeek INT
+            ,DepTime INT
+            ,CRSDepTime INT
+            ,ArrTime INT
+            ,CRSArrTime INT
+            ,UniqueCarrier string
+            ,FlightNum INT
+            ,TailNum string
+            ,ActualElapsedTime INT
+            ,CRSElapsedTime INT
+            ,AirTime string
+            ,ArrDelay INT
+            ,DepDelay INT
+            ,Origin String
+            ,Dest String
+            ,Distance INT
+            ,TaxiIn string
+            ,TaxiOut string
+            ,Cancelled string
+            ,CancellationCode string
+            ,Diverted string
+            ,CarrierDelay string
+            ,WeatherDelay string
+            ,NASDelay string
+            ,SecurityDelay string
+            ,LateAircraftDelay string
+        ) row format delimited fields terminated BY ',' stored AS textfile location "s3://ughdfsdemo/tmp/DDA1610218/Airline/" TBLPROPERTIES (
+            "skip.header.line.count" = "1"
+        )
+;
+
+
+
+#Copy from one location to anoother
+
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1987.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1988.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1989.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1990.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1991.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1992.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1993.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1994.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1995.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1996.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1997.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1998.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/1999.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2000.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2001.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2002.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2003.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2004.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2005.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2006.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2007.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
+hdfs dfs -cp s3://ughdfsdemo/airlinedata/2008.csv s3://ughdfsdemo/tmp/DDA1610218/Airline/
